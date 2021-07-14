@@ -1,0 +1,92 @@
+.LoginBannerSection {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  height: 100vh;
+  z-index: -1;
+  background-size: cover;
+  background-position: center center;
+  object-fit: contain;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login_Content {
+  color: white;
+  padding: 0px 20px;
+  text-align: center;
+}
+
+.login_Content h1 {
+  font-size: 3.125rem;
+  max-width: 600px;
+  color: white;
+  line-height: 3.5rem;
+}
+
+.login_Content h4 {
+  font-size: 1.625rem;
+  margin: 1rem 0px;
+}
+
+.login_Content p {
+  max-width: 450px;
+  margin: 0 auto;
+  font-size: 1.2rem;
+  font-weight: 200;
+}
+
+.login_Content form {
+  display: flex;
+  margin-top: 1rem;
+  justify-content: center;
+}
+
+.login_Content form .login_input {
+  margin: 0 auto;
+  flex: 1;
+  font-size: 1rem;
+  padding: 15px;
+  border: none;
+  width: 100%;
+  border-radius: 3px 0 0 3px;
+}
+
+.login_Content form .get_started {
+  padding: 15px 20px;
+  color: white;
+  background: var(--primary-color);
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  border-radius: 0 3px 3px 0;
+}
+
+.login_Content form .getStarted_right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+@media (max-width: 550px) {
+  .login_Content h1 {
+    font-size: 1.75rem;
+    line-height: normal;
+    max-width: 400px;
+  }
+
+  .login_Content h4 {
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+
+  .login_Content form {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}

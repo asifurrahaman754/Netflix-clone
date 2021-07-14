@@ -1,0 +1,43 @@
+.navSection {
+  max-width: 1400px;
+  padding: 0px 40px;
+  margin: 0 auto;
+  z-index: 1;
+}
+
+.nav {
+  width: 100%;
+  display: flex;
+  height: var(--nav-height);
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav_logo {
+  width: 130px;
+  cursor: pointer;
+}
+
+/* this style applies if it is a home screen navbar */
+.nav_user {
+  width: 33px;
+  object-fit: cover;
+  border-radius: 50%;
+  height: 33px;
+}
+
+/* this style applies if it is a login screen navbar */
+.nav_button {
+  border: none;
+  color: white;
+  font-size: 1rem;
+  padding: 7px 17px;
+  font-family: system-ui;
+  background-color: var(--primary-color);
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.nav_button:hover {
+  background-color: #ad0911;
+}
