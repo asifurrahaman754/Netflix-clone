@@ -1,7 +1,7 @@
 .row_section {
   color: white;
   margin-left: 20px;
-  padding: 20px;
+  padding-bottom: 3rem;
 }
 
 .row_poster_container {
@@ -16,6 +16,11 @@
   margin-right: 20px;
 }
 
+.row_poster_container {
+  -ms-overflow-style: none; /* IE 11 */
+  scrollbar-width: none; /*for firefox */
+}
+
 .row_poster_container::-webkit-scrollbar {
   display: none;
 }
@@ -26,13 +31,13 @@
   border-radius: 8px;
   width: 100%;
   cursor: pointer;
-  transition: transform 0.3s;
+  transition: box-shadow 0.2s;
   box-shadow: 7px 7px 0px 0px #e5091463;
   border: 2px solid #e50914;
 }
 
-.row_poster:hover {
-  transform: scale(1.08);
+.row_poster_img:hover {
+  box-shadow: 0px 0px 0px 8px #e5091463;
 }
 
 .movie_poster_name {
@@ -46,4 +51,22 @@
 
 .row_poster_large {
   height: 240px;
+}
+
+.poster_trailer {
+  max-width: 900px;
+  margin: 0 auto;
+  display: block;
+  animation: show;
+  animation-timing-function: ease-in;
+  animation-duration: 0.2s;
+}
+
+@keyframes show {
+  from {
+    height: 0px;
+  }
+  to {
+    height: 390px;
+  }
 }

@@ -1,7 +1,8 @@
+import { Link } from "react-router-dom";
+
 import style from "./Navbar.module.css";
 import logo from "../../../assets/images/home/logo.svg";
 import avatar from "../../../assets/images/users/1.png";
-import { Link } from "react-router-dom";
 
 export default function Navbar({ LoginNav, handleClick }) {
   return (

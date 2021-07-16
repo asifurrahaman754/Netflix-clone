@@ -1,6 +1,6 @@
 .navSection {
-  max-width: 1400px;
-  padding: 0px 40px;
+  max-width: 1200px;
+  padding: 0px 20px;
   margin: 0 auto;
   z-index: 1;
 }
@@ -40,4 +40,10 @@
 
 .nav_button:hover {
   background-color: #ad0911;
+}
+
+@media (max-width: 550px) {
+  .nav_logo {
+    width: 100px;
+  }
 }

@@ -5,6 +5,7 @@ import axios from "../../../axios";
 import movieTrailer from "movie-trailer";
 
 import style from "./Row.module.css";
+import RowItem from "./RowItem";
 
 const BASE_URL = "https://image.tmdb.org/t/p/original";
 
@@ -24,8 +25,8 @@ export default function Row({ title, fetchURL, isLargeRow = false }) {
     },
   };
 
-  function handleLClick(movie) {
-    console.log(movie);
+  //do these when a user clicks a poster
+  function handleClick(movie) {
     if (trailer) {
       setTrailer("");
     } else {
@@ -37,9 +38,11 @@ export default function Row({ title, fetchURL, isLargeRow = false }) {
           //extract the v vlaue from the full URL
           const urlVvalue = fullURL.get("v");
           setTrailer(urlVvalue);
-          console.log(urlVvalue);
         })
-        .catch(err => console.log("this is trailer error" + err.message));
+        .catch(err => {
+          alert("Didn't found the trailer, try another");
+          return;
+        });
     }
   }
 
@@ -49,40 +52,27 @@ export default function Row({ title, fetchURL, isLargeRow = false }) {
       <div className={style.row_poster_container}>
         {movies.map(
           movie =>
-            //chekcking if any image link is broken
+            //filtering broken image link
             ((isLargeRow && movie.poster_path) ||
               (!isLargeRow && movie.backdrop_path)) && (
-              <div className={style.poster_container}>
-                <div className={style.poster_image_container}>
-                  <img
-                    draggable="true"
-                    key={movie.id}
-                    onClick={() => handleLClick(movie)}
-                    className={`${style.row_poster_img} ${
-                      isLargeRow && style.row_poster_large
-                    }`}
-                    src={`${BASE_URL}${
-                      isLargeRow ? movie?.poster_path : movie?.backdrop_path
-                    }`}
-                    alt={movie.name}
-                    title={movie.name}
-                  />
-                </div>
-                {!isLargeRow && (
-                  <>
-                    <span className={style.movie_poster_name}>
-                      {movie?.name || movie?.original_name || movie?.title}
-                    </span>
-                    <span className={style.movie_poster_date}>
-                      {movie.first_air_date || movie.release_date}
-                    </span>
-                  </>
-                )}
-              </div>
+              <RowItem
+                key={movie.id}
+                handleClick={handleClick}
+                movie={movie}
+                isLargeRow={isLargeRow}
+              />
             )
         )}
       </div>
-      {/* {trailer && <Youtube videoId={trailer} opts={opts} />} */}
+
+      {/* Only show this when you have a trailer */}
+      {trailer && (
+        <Youtube
+          className={style.poster_trailer}
+          videoId={trailer}
+          opts={opts}
+        />
+      )}
     </section>
   );
 }

@@ -20,17 +20,21 @@ export default function Banner() {
           Math.random() * response.data.results.length - 1
         );
 
+        //store a random results for the banner
         setMovie(response.data.results[get_Random_Data_Number]);
       })
       .catch(err => {
         if (err.name === "AbortError") {
           console.log("fetch aborted");
+        } else {
+          alert(err.message);
         }
       });
 
     return () => abortCont.abort();
   }, []);
 
+  //cut the desc. if the desc. is too large
   const truncateParagraph = (string, strlength) => {
     return string.length > strlength
       ? string.substr(0, strlength - 1) + "..."

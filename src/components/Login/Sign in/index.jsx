@@ -9,6 +9,7 @@ export default function SignIn() {
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
 
+  //User Authentication
   const handleSubmit = e => {
     e.preventDefault();
     auth
@@ -25,6 +26,7 @@ export default function SignIn() {
       .catch(err => setError(err.message));
   };
 
+  //Sign in existing user
   const handleSignIn = e => {
     e.preventDefault();
     auth

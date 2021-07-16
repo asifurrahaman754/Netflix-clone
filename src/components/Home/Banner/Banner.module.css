@@ -61,3 +61,9 @@
   margin-top: 20px;
   font-size: 1.2rem;
 }
+
+@media (max-width: 550px) {
+  .Banner_Container h1 {
+    font-size: 2rem;
+  }
+}
