@@ -65,7 +65,6 @@ export default function Row({ title, fetchURL, isLargeRow = false }) {
         )}
       </div>
 
-      {/* Only show this when you have a trailer */}
       {trailer && (
         <Youtube
           className={style.poster_trailer}

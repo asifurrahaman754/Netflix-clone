@@ -8,6 +8,7 @@ export default function Row({ movie, handleClick, isLargeRow }) {
       <div className={style.poster_image_container}>
         <img
           draggable="true"
+          loading="lazy"
           key={movie.id}
           onClick={() => handleClick(movie)}
           className={`${style.row_poster_img} ${
